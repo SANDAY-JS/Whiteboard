@@ -5,17 +5,17 @@ using UnityEngine;
 public class WhiteboardMarker : MonoBehaviour
 {
     [SerializeField] private Transform _tip;
-    [SericSerializeField] private int _penSize = 5;
+    [SerializeField] private int _penSize = 5;
 
     private Renderer _renderer;
     private Color[] _colors;
     private float _tipHeight;
 
     private RaycastHit _touch;
-    private Whiteboard _whiteboard;
+    private WhiteBoard _whiteboard;
     private Vector2 _touchPos, _lastTouchPos;
     private bool _touchedLastFrame;
-    private Quaternoin _lastTouchRot;
+    private Quaternion _lastTouchRot;
 
     // Start is called before the first frame update
     void Start()
