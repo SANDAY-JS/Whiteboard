@@ -21,7 +21,7 @@ public class WhiteboardMarker : MonoBehaviour
     void Start()
     {
         _renderer = GetComponent<Renderer>();
-        _colors = Emurable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+        _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
         _tipHeight = _tip.localScale.y;
     }
 
@@ -39,7 +39,7 @@ public class WhiteboardMarker : MonoBehaviour
             {
                 if (_whiteboard == null)
                 {
-                    _whiteboard = _touch.transform.GetComponent<Whiteboard>();
+                    _whiteboard = _touch.transform.GetComponent<WhiteBoard>();
                 }
 
                 _touchPos = new Vector2(_touch.textureCoord.x, _touch.textureCoord.y);
@@ -57,7 +57,7 @@ public class WhiteboardMarker : MonoBehaviour
                     {
                         var _lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
                         var _lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
-                        _whiteboard.texture.SetPixels(_lerpX, _lerpY, penSize, _penSize, _colors);
+                        _whiteboard.texture.SetPixels(_lerpX, _lerpY, _penSize, _penSize, _colors);
                     }
 
                     // lock the pen's rotation when it is pushing the whiteboard

@@ -12,6 +12,6 @@ public class WhiteBoard : MonoBehaviour
     {
         var r = GetComponent<Renderer>();
         texture = new Texture2D((int)textureSize.x, (int)textureSize.y);
-        e.material.mainTexture = texture;
+        r.material.mainTexture = texture;
     }
 }
